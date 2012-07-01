@@ -50,7 +50,7 @@ IPLibrary::Base.ip2pinyin(2072313478)
 #=> "linyi"
   DESCRIPT
   gem.summary       = %q{IPLibrary是一个ip库的gem，它能通过类似ip2city等方法得到ip所在城市}
-  gem.homepage      = ""
+  gem.homepage      = 'https://github.com/tumayun/ip_library'
 
   #gem.files         = `git ls-files`.split($\)
   gem.files         = %w(Gemfile ip_library.gemspec LICENSE Rakefile README.md)
