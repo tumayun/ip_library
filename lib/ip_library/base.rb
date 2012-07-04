@@ -2,13 +2,14 @@
 module IPLibrary
 
   class Configuration
-    cattr_accessor :file_path, :optional_columns, :separator, instance_writer: false
+    cattr_accessor :file_path, :optional_columns, :separator, :except_regexp, :instance_writer => false
     cattr_reader   :non_optional_columns, :columns
 
     @@file_path            = File.join(File.dirname(__FILE__), '..', '..', 'doc', 'ip_libraries.txt') #"#{File.dirname(__FILE__)}/../../doc/ip_libraries.txt"
-    @@optional_columns     = [:province, :city, :district, :pinyin]
+    @@optional_columns     = [:province, :city, :district]
     @@non_optional_columns = [:start_ip, :end_ip]
     @@columns              = @@non_optional_columns + @@optional_columns
+    @@except_regexp        = /[a-zA-Z0-9]?(全国|中国|全省各市|\(.*\))?/
     @@separator            = "========================\n"
 
     def self.optional_columns=(other)
