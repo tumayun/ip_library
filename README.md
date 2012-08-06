@@ -15,10 +15,10 @@
 设置其他列：IPLibrary::Configuration.optional_columns = [:province, :city, :district, :pinyin]  
 除了1、2列，其他列一次为province、city、district、pinyin  
 然后会动态生成方法：  
-*IPLibrary::Base#ip2province
-*IPLibrary::Base#ip2city
-*IPLibrary::Base#ip2district
-*IPLibrary::Base#ip2pinyin
+*  IPLibrary::Base#ip2province
+*  IPLibrary::Base#ip2city
+*  IPLibrary::Base#ip2district
+*  IPLibrary::Base#ip2pinyin
 
 =============================================
 
