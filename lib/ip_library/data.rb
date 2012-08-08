@@ -100,7 +100,7 @@ module IPLibrary
           province.sub!(CITY_REGEXP, '')
           if city.blank?
             [nil, province, nil]
-          elsif city =~ DISTRICT_REGEXP
+          else
             [nil, province, city]
           end
         elsif city.blank?
@@ -113,18 +113,21 @@ module IPLibrary
         elsif city =~ DISTRICT_REGEXP
           province.sub!(PROVINCE_REGEXP, '')
           [province, nil, city]
+        else
+          province.sub!(PROVINCE_REGEXP, '')
+          [province, city, nil]
         end
       end
 
       def get_areas_array(province, city)
         if province =~ /\//
           province.split('/').inject([]) do |result, p|
-          result << get_areas(p, city)
-        end
+            result << get_areas(p, city)
+          end
         elsif city =~ /\//
           city.split('/').inject([]) do |result, c|
-          result << get_areas(province, c)
-        end
+            result << get_areas(province, c)
+          end
         else
           [get_areas(province, city)]
         end
