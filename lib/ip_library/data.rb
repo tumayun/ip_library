@@ -99,9 +99,9 @@ module IPLibrary
         if province =~ /北京|上海|天津|重庆/
           province.sub!(CITY_REGEXP, '')
           if city.blank?
-            [nil, province, nil]
+            [province, province, nil]
           else
-            [nil, province, city]
+            [province, province, city]
           end
         elsif city.blank?
           province.sub!(PROVINCE_REGEXP, '')
